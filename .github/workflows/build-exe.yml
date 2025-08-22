@@ -23,7 +23,7 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile main.py
+          pyinstaller --noconsole --onefile main.py
           echo "=== DIST CONTENTS ==="
           dir dist
           echo "=== BUILD CONTENTS ==="
