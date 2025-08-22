@@ -22,11 +22,17 @@ jobs:
           pip install pyinstaller
 
       - name: Build EXE
-        run: pyinstaller --onefile main.py
+        run: |
+          pyinstaller --onefile main.py
+          echo "=== DIST CONTENTS ==="
+          dir dist
+          echo "=== BUILD CONTENTS ==="
+          dir build
+          echo "=== CURRENT DIR ==="
+          dir
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: myscript-exe
-          path: dist/myscript.exe
-
+          path: dist/*.exe
